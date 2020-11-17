@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router";
 import '../style.css';
 
 class Card extends Component {
@@ -14,6 +15,10 @@ class Card extends Component {
 }
 
 export default class Dash extends Component {
+  onGoToForm() {
+    Link.push("/Form")
+  }
+
   render() {
     return (
       <div>
@@ -28,9 +33,9 @@ export default class Dash extends Component {
         </div>
 
         <div>
-          <div class="plus-button">
-            +
-          </div>
+            <div onClick="this.onGoToForm" class="plus-button">
+              +
+            </div>
         </div>
       </div>
     )
