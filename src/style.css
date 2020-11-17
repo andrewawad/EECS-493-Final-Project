@@ -10,12 +10,14 @@
 .note {
   background-color: lightgray;
   border-radius: 10px;
-  width: 80%;
+  width: 83%;
   margin: 20px;
+  margin-left: 30px;
   padding: 20px;
   height: 5px;
 
 }
+
 .note-title{
   color: black;
   text-align: left;
@@ -26,6 +28,7 @@
 .card-cont {
   display: flex;
   flex-flow: row wrap;
+  margin-left: 15px;
 }
 
 .card-num {
@@ -43,4 +46,9 @@
   background-color: blue;
   color: aliceblue;
   border-radius: 50%;
+}
+
+.subtitle {
+  text-align: left;
+  margin-left: 30px;
 }
