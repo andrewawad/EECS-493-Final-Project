@@ -7,7 +7,7 @@ import {BrowserRouter} from 'react-router-dom';
 // import { createBrowserHistory } from 'history';
 
 ReactDOM.render(
-  <BrowserRouter /*history={browserHistory}*/>
+  <BrowserRouter>
     <App />
   </BrowserRouter>,
   document.getElementById('root')
