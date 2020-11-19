@@ -1,3 +1,94 @@
+
+
+.journal_title{
+  color: #ED3F3F;
+  position: absolute;
+  width: 324px;
+  height: 48px;
+  left: 63px;
+  top: 10px;
+
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 83px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  
+}
+.link{
+  color:inherit;
+  text-decoration: none;
+
+}
+.sign_in{
+  position: absolute;
+  width: 358px;
+  height: 81px;
+  left: 541px;
+  top: 460px;
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  background-color: #ED3F3F;
+  border-radius: 20px;
+  color:  #FFFDF4;
+  line-height: 81px;
+
+
+  
+
+
+
+}
+.metrics_life{
+
+  position: absolute;
+  width: 521px;
+  height: 132px;
+  left: 459px;
+  top: 190px;
+  
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  
+  color: #000000;
+}
+.texting_girl{
+  width: 20%;
+  position: absolute;
+  left: 5%;
+  top: 200px;
+
+
+}
+.song_girl{
+  width: 20%;
+  position: absolute;
+  left: 80%;
+  top: 200px;
+
+
+}
+.sitting_girl{
+  width: 20%;
+  position: absolute;
+  left: 42%;
+  top: 80%;
+
+
+
+
+}
 .card {
   background-color: antiquewhite;
   border-radius: 10px;
