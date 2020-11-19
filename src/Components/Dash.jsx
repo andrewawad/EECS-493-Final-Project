@@ -14,6 +14,7 @@ class Card extends Component {
         <h2 class="card-title">{this.props.title}</h2>
         <p class="card-num">{this.props.num}</p>
         <h3 class="card-subtitle">{this.props.subtitle}</h3>
+
       </div>
     );
   }
@@ -31,13 +32,21 @@ class Note extends Component {
 
 export default class Dash extends Component {
   render() {
+    let x =5
+    if (this.props.location.state !== "undefined"){
+    x = this.props.location.state.productive
+    }
+ 
+
     return (
+      
       <div class="full-dash">
         <h1>Welcome to your dashboard!</h1>
 
+
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
-          <Card title="🔥 STREAK" num="6 days in a row" subtitle="" />
+          <Card title="🔥 STREAK" num={x} subtitle="days in a row" />
           <Card title="😃 HAPPINESS" num="9.7" subtitle="this week" />
           <Card title="💪 HEALTH" num="4.7" subtitle="this week" />
           <Card title="✍️ PRODUCTIVITY" num="4.7" subtitle="this week" />

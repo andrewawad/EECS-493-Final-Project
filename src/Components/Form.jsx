@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../style.css';
+import {Link} from 'react-router-dom';
 
 
 
@@ -47,6 +48,10 @@ export default class Form extends Component {
             </div>
 
             <h3 class="formQuestion">Today's Journal</h3>
+
+          <div class = 'done'>
+          <Link to= {{pathname: "/dashboard", state: this.state }} class = "link" > done </Link>
+          </div>
 
 
 
