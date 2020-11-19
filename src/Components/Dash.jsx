@@ -16,7 +16,6 @@ class Card extends Component {
   }
 }
 
-
 class Note extends Component {
   render() {
     return(
@@ -26,8 +25,6 @@ class Note extends Component {
     )
   }
 }
-
-
 
 export default class Dash extends Component {
   goToForm() {
