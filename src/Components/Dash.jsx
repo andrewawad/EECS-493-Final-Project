@@ -32,7 +32,7 @@ class Note extends Component {
 export default class Dash extends Component {
   render() {
     return (
-      <div>
+      <div class="full-dash">
         <h1>Welcome to your dashboard!</h1>
 
         <h2 class="subtitle">Stats</h2>
@@ -46,10 +46,6 @@ export default class Dash extends Component {
         <h2 class="subtitle">Journal Entries</h2>
         <Note title="this is a test note" />
         <Note title="this is a second test note" />
-
-        <p>
-          <Link to="/form">Create a new entry</Link>
-        </p>
 
         <div>
           <Link to="/form">
