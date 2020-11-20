@@ -14,11 +14,12 @@ function Home() {
             <img src={texting_girl} class = 'texting_girl' alt="Texting Girl"></img>
 
             <h1 class = 'journal_title'>Journally!</h1>
+            
             <div class = 'middle_section'>
-            <h1 class = 'metrics_life'>Metrics, for your life</h1>
-            <div class = 'sign_in'>  
-            <Link to="/dashboard"  class = 'link'> request access </Link>
-            </div>
+                <h1 class = 'metrics_life'>Metrics, for your life</h1>
+                <div class = 'sign_in'>  
+                    <Link to="/dashboard"  class = 'link'> request access </Link>
+                </div>
             </div>
         </div>
     )
