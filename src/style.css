@@ -21,7 +21,7 @@
 .link{
   color:inherit;
   text-decoration: none;
-
+  text-align: center;
 }
 .sign_in{
   position: absolute;
@@ -85,10 +85,18 @@
   left: 42%;
   top: 80%;
 
-
-
-
 }
+
+.dashTitle {
+  text-align: left;
+  margin-left: 30px;
+  color: #ED3F3F;
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+}
+
 .card {
   background-color: antiquewhite;
   border-radius: 10px;
@@ -131,12 +139,12 @@
 .plus-button {
   position: fixed;
   text-align: center;
-  bottom: 60px;
-  right: 60px;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  font-size: 30px;
+  bottom: 70px;
+  right: 70px;
+  width: 70px;
+  height: 70px;
+  line-height: 60px;
+  font-size: 70px;
   background-color: blue;
   color: aliceblue;
   border-radius: 50%;
@@ -149,16 +157,27 @@
 /* FORM */
 .formTitle {
   text-align: left;
-  margin-left: 20px;
+  margin-left: 30px;
+  color: #ED3F3F;
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.formQuestion {
+  text-align: center;
 }
 
 .slidecontainer {
   width: 100%; 
+  margin-bottom: 40px;
 }
 
 .slider {
+  margin-left: 30%;
   -webkit-appearance: none;
-  width: 50%;
+  width: 40%;
   height: 15px;
   border-radius: 5px;  
   background: #d3d3d3;
@@ -188,4 +207,36 @@
 
 .slider:hover {
   opacity: 1;
+}
+
+.journalContainer {
+  background-color: white;
+  border-color: grey;
+  border-width: 3px;
+}
+
+.longInput {
+  width: 60%;
+  margin-left: 20%;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.buttonContainer{
+  margin: auto;
+  width: 150px;
+}
+
+.submitButton {
+  background-color: #ED3F3F;
+  color: white;
+  border-width: 0;
+  border-radius: 15px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 50px;
 }

@@ -33,7 +33,7 @@ export default class Dash extends Component {
   render() {
     return (
       <div class="full-dash">
-        <h1>Welcome to your dashboard!</h1>
+        <h1 class="dashTitle">Jacob's Dashboard</h1>
 
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
@@ -49,7 +49,7 @@ export default class Dash extends Component {
 
         <div>
           <Link to="/form">
-            <div onClick={this.goToForm} Class="plus-button">
+            <div Class="plus-button">
               +
             </div>
           </Link>
