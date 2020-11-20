@@ -6,6 +6,7 @@ import {
     Link
   } from "react-router-dom";
 import '../style.css';
+import {Link} from 'react-router-dom';
 
 
 
@@ -19,7 +20,8 @@ export default class Form extends Component {
             stress: 5,
             relationships: 5,
             learn: 5,
-            happy: 5
+            happy: 5,
+            text: ""
         }
 
         this.handleOverall = this.handleOverall.bind(this);
@@ -85,6 +87,7 @@ export default class Form extends Component {
             <div class="slidecontainer">
                 <input type="range" min="0" max="10" value={productive} onChange={this.handleProductive} class="slider"></input>
             </div>
+            <div class="text_container">
 
             <h3 class="formQuestion">How well did you handle stress? {stress}</h3>
 

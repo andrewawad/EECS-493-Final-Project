@@ -14,6 +14,7 @@ class Card extends Component {
         <h2 class="card-title">{this.props.title}</h2>
         <p class="card-num">{this.props.num}</p>
         <h3 class="card-subtitle">{this.props.subtitle}</h3>
+
       </div>
     );
   }
@@ -31,21 +32,43 @@ class Note extends Component {
 
 export default class Dash extends Component {
   render() {
+    let p = 5
+    let ha = 5
+    let he = 5
+    let te = "this is a test note"
+
+    console.log(this.props.location.state)
+    if (typeof(this.props.location.state) == 'undefined' ){
+      p=5
+    }
+    else{
+      p = this.props.location.state.productive
+      ha = this.props.location.state.happy
+      he = this.props.location.state.healthy
+      te = this.props.location.state.text
+
+    }
+ 
+
     return (
+      
       <div class="full-dash">
         <h1 class="dashTitle">Jacob's Dashboard</h1>
 
+
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
-          <Card title="🔥 STREAK" num="6 days in a row" subtitle="" />
-          <Card title="😃 HAPPINESS" num="9.7" subtitle="this week" />
-          <Card title="💪 HEALTH" num="4.7" subtitle="this week" />
-          <Card title="✍️ PRODUCTIVITY" num="4.7" subtitle="this week" />
+          <Card title="🔥 STREAK" num = "5" subtitle="days in a row" />
+          <Card title="😃 HAPPINESS" num={ha} subtitle="this week" />
+          <Card title="💪 HEALTH" num={he} subtitle="this week" />
+          <Card title="✍️ PRODUCTIVITY" num={p} subtitle="this week" />
         </div>
 
         <h2 class="subtitle">Journal Entries</h2>
+ 
+          
         <Note title="this is a test note" />
-        <Note title="this is a second test note" />
+        <Note title={te}/>
 
         <div>
           <Link to="/form">
