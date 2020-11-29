@@ -15,7 +15,7 @@ export default class Form extends Component {
     
     handleChange(event) {
         this.setState({productive: event.target.value});
-      }
+    }
     
     render() {
       let { rating, productive } = this.state;
