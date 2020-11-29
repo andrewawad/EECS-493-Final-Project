@@ -1,4 +1,3 @@
-import './App.css';
 import Home from './Components/Home';
 import Dash from './Components/Dash';
 import Form from './Components/Form';

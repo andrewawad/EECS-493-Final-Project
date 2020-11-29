@@ -39,16 +39,13 @@
   color:  #FFFDF4;
   line-height: 81px;
   text-align: center;
-
-
-
-  
-
-
-
 }
-.metrics_life{
 
+.full-dash {
+  border: aqua 5px;
+}
+
+.metrics_life{
   position: absolute;
   width: 521px;
   height: 132px;
@@ -107,6 +104,7 @@
   margin: 15px;
   padding: 15px;
   text-align: center;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 
@@ -133,6 +131,17 @@
   display: flex;
   flex-flow: row wrap;
   margin-left: 15px;
+}
+
+@media (max-width: 800px) {
+  .card-cont {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    width: 45%;
+  }
 }
 
 .card-num {
@@ -246,6 +255,9 @@
 }
 
 .buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin: auto;
   width: 150px;
 }
@@ -259,5 +271,17 @@
   height: 50px;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin: 20px;
+}
+
+.backButton {
+  background-color: rgb(63, 109, 237);
+  color: white;
+  border-width: 0;
+  border-radius: 15px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
 }

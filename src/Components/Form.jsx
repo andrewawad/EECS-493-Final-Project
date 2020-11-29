@@ -103,12 +103,14 @@ export default class Form extends Component {
                 <input type="range" min="0" max="10" value={happy} onChange={this.handleHappy} class="slider"></input>
             </div>
 
-            <h3 class="formQuestion">How was your day?</h3>
             <div class="journalContainer">
-                <textarea class="longInput" cols="30" rows="10"></textarea>
+                <textarea placeholder="Today I ... " class="longInput" cols="30" rows="10"></textarea>
             </div>
 
             <div class="buttonContainer">
+                <Link to="/dashboard">
+                    <button class="backButton">Back</button>
+                </Link>
                 <Link to="/dashboard">
                     <button class="submitButton">Submit</button>
                 </Link>

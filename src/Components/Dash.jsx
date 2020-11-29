@@ -48,14 +48,10 @@ export default class Dash extends Component {
       te = this.props.location.state.text
 
     }
- 
 
     return (
-      
       <div class="full-dash">
         <h1 class="dashTitle">Jacob's Dashboard</h1>
-
-
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
           <Card title="🔥 STREAK" num = "5" subtitle="days in a row" />
@@ -65,8 +61,6 @@ export default class Dash extends Component {
         </div>
 
         <h2 class="subtitle">Journal Entries</h2>
- 
-          
         <Note title="this is a test note" />
         <Note title={te}/>
 
