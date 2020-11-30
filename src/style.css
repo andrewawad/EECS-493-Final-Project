@@ -24,11 +24,15 @@
   text-align: center;
 }
 
+.login{
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
 .sign_in{
   position: absolute;
-  width: 358px;
+  width: 200px;
   height: 81px;
-  left: 541px;
+  left: 760px;
   top: 460px;
   font-family: Rationale;
   font-style: normal;
@@ -40,6 +44,22 @@
   line-height: 81px;
   text-align: center;
 }
+.sign_up{
+  position: absolute;
+  width: 200px;
+  height: 81px;
+  left: 500px;
+  top: 460px;
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  background-color: #ED3F3F;
+  border-radius: 20px;
+  color:  #FFFDF4;
+  line-height: 81px;
+  text-align: center;}
+
 
 .full-dash {
   border: aqua 5px;

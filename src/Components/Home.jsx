@@ -17,8 +17,15 @@ function Home() {
             
             <div class = 'middle_section'>
                 <h1 class = 'metrics_life'>Metrics, for your life</h1>
+                <div class = 'login'>
+
+                <div class = 'sign_up'>  
+                    <Link to="/dashboard"  class = 'link'> sign up </Link>
+                </div>
                 <div class = 'sign_in'>  
-                    <Link to="/dashboard"  class = 'link'> request access </Link>
+                    <Link to="/dashboard"  class = 'link'> sign in </Link>
+                </div>
+                
                 </div>
             </div>
         </div>
