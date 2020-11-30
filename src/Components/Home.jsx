@@ -5,6 +5,8 @@ import sitting_girl from '../images/sitting_girl.png';
 import song_girl from '../images/song_girl.png';
 import texting_girl from '../images/texting_girl.png';
 
+import { signInWithGoogle } from "./services/firebase";
+
 function Home() {
     return(
         <div>
@@ -17,15 +19,9 @@ function Home() {
             
             <div class = 'middle_section'>
                 <h1 class = 'metrics_life'>Metrics, for your life</h1>
-                <div class = 'login'>
-
-                <div class = 'sign_up'>  
-                    <Link to="/dashboard"  class = 'link'> sign up </Link>
-                </div>
                 <div class = 'sign_in'>  
-                    <Link to="/dashboard"  class = 'link'> sign in </Link>
-                </div>
-                
+                    <div  class = 'link' onClick={signInWithGoogle}> sign in </div>
+
                 </div>
             </div>
         </div>
