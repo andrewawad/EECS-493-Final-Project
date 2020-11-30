@@ -1,0 +1,38 @@
+{"users":{
+
+    "1":{
+        "entries":{
+            "11-29-2020":{
+            "happiness":9,
+            "stress":5,
+            "healthy":8,
+            "productive":4,
+            "relationships":3,
+            "learn":9,
+            "overall":7
+            },
+            "11-28-2020":{
+                "happiness":4,
+                "stress":6,
+                "healthy":2,
+                "productive":9,
+                "relationships":4,
+                "learn":2,
+                "overall":1
+
+        },
+        "11-27-2020":{
+            "happiness":9,
+            "stress":5,
+            "healthy":8,
+            "productive":4,
+            "relationships":3,
+            "learn":9,
+            "overall":7
+    }
+
+
+}
+    }
+}
+}
