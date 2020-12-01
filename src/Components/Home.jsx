@@ -1,13 +1,36 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import React, { useCallback,useContext, Component } from 'react';
+import {Link, Redirect, withRouter} from 'react-router-dom';
 import '../style.css';
 import sitting_girl from '../images/sitting_girl.png';
 import song_girl from '../images/song_girl.png';
 import texting_girl from '../images/texting_girl.png';
 
-import { signInWithGoogle } from "./services/firebase";
+import {authentication} from "./services/firebase";
+import {AuthContext} from "../Auth"
 
-function Home() {
+
+
+
+const Home = ({ history }) => {
+    const handleLogin = useCallback(
+      async event => {
+        event.preventDefault();
+        try {
+          authentication.signInWithGoogle()
+          history.push("/");
+        } catch (error) {
+          alert(error);
+        }
+      },
+      [history]
+    );
+  
+    const { currentUser } = useContext(AuthContext);
+    if (currentUser) {
+      return <Redirect to="/dashboard" />;
+    }
+
+
     return(
         <div>
 
@@ -20,12 +43,12 @@ function Home() {
             <div class = 'middle_section'>
                 <h1 class = 'metrics_life'>Metrics, for your life</h1>
                 <div class = 'sign_in'>  
-                    <div  class = 'link' onClick={signInWithGoogle}> sign in </div>
-
+                    <div  class = 'link' onClick={handleLogin}> sign in </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Home;
+export default withRouter(Home);
+

@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import "firebase/auth";
 import "firebase/firestore";
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -15,22 +16,30 @@ var firebaseConfig = {
   measurementId: "G-3QLMFB0SBV"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
+export default app;
+
+
 
 const db = firebase.firestore();
 export const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider()
-export const signInWithGoogle = () => {
+export const authentication ={
+  isAuthenticated: false,
+  signInWithGoogle: () => {
+
   auth.signInWithPopup(googleProvider).then((res) => {
     console.log(res.user.uid)
     if (res.additionalUserInfo.isNewUser==true){
     return db.collection('users').doc(res.user.uid).set({
     });
   }
-    
   })
-  .then(() => {})
+  .then(() => {
+  })
   .catch((error) => {
-    console.log(error.message)
+    throw error
   })
+  }
+
 }
