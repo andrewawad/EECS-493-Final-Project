@@ -39,9 +39,14 @@ const Home = ({ history }) => {
             <h1 class = 'journal_title'>Journally!</h1>
             
             <div class = 'middle_section'>
-                <h1 class = 'metrics_life'>Metrics, for your life</h1>
-                <div class = 'sign_in'>  
-                    <div  class = 'link' onClick={handleLogin}> sign in </div>
+                <div class = 'metrics_life_wrapper'>
+                  <h1 class = 'metrics_life'>Metrics, for your life</h1>
+                </div>
+
+                <div class = 'sign_in_wrapper'>
+                  <div class = 'sign_in'>  
+                      <div  class = 'link' onClick={handleLogin}> sign in </div>
+                  </div>
                 </div>
             </div>
         </div>
