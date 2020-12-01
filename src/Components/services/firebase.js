@@ -26,6 +26,15 @@ export const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const authentication ={
   isAuthenticated: false,
+  signOut:()=>{
+    auth.signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      return(error)
+      // An error happened.
+    });
+
+  },
   signInWithGoogle: () => {
 
   auth.signInWithPopup(googleProvider).then((res) => {

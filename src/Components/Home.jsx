@@ -9,8 +9,6 @@ import {authentication} from "./services/firebase";
 import {AuthContext} from "../Auth"
 
 
-
-
 const Home = ({ history }) => {
     const handleLogin = useCallback(
       async event => {

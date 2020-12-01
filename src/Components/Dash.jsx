@@ -3,9 +3,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   Link
 } from "react-router-dom";
 import "../style.css";
+import {authentication} from "./services/firebase";
 
 class Card extends Component {
   render() {
@@ -31,6 +33,21 @@ class Note extends Component {
 }
 
 export default class Dash extends Component {
+      signOut(){
+      try {
+        authentication.signOut()
+        return <Redirect to="/" />;
+
+      } catch (error) {
+        alert(error);
+      }
+    }
+  
+
+
+  
+  
+  
   render() {
     let p = 5
     let ha = 5
@@ -48,10 +65,16 @@ export default class Dash extends Component {
       te = this.props.location.state.text
 
     }
+    
+
+
+
 
     return (
       <div class="full-dash">
         <h1 class="dashTitle">Jacob's Dashboard</h1>
+        <button class="logout" onClick={this.signOut}>logout</button>
+
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
           <Card title="🔥 STREAK" num = "5" subtitle="days in a row" />
