@@ -12,7 +12,19 @@ import firebase from 'firebase';
 import "firebase/auth";
 import "firebase/firestore";
 import ReactCardFlip from 'react-card-flip';
+import {XYPlot, XAxis, YAxis,   VerticalGridLines,    HorizontalGridLines, LineSeries,  AreaSeries, GradientDefs,  Borders
 
+} from 'react-vis';
+
+const DAYS = [
+  'Mon',
+  'Tu',
+  'Wed ',
+  'Thu ',
+  'Fri',
+  'Sat',
+  'Sun',
+  ];
 class Card extends Component {
   constructor() {
     super();
@@ -38,7 +50,51 @@ class Card extends Component {
         </div>
 
         <div class="card" onClick={this.handleClick}>
-          {/* Graph */}
+        <div class="graphs">
+        <h2 class="card-title">{this.props.title}</h2>
+
+          <XYPlot xDomain={[0, 6]} yDomain={[0, 10]} width={300} height={150}>
+
+            {/* <VerticalGridLines /> */}
+
+
+
+            <XAxis  tickTotal ={7} tickFormat = {v => `${DAYS[v]}`} 
+              style={{
+              line: {stroke: 'black'},
+              ticks: {stroke: 'black'},
+              text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+}}/>
+            <YAxis  style={{
+              line: {stroke: 'black'},
+              ticks: {stroke: 'black'},
+              text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+}}/>
+
+  
+
+            <LineSeries
+              curve={'curveMonotoneX'}
+              color={'#ED3F3F'}
+              opacity = {1}
+              
+
+                data={[
+                  {x: 0, y: 4, y0: 0},
+                  {x: 1, y: 2, y0: 0},
+                  {x: 2, y: 2, y0: 0},
+                  {x: 3, y: 1, y0: 0},
+                  {x: 4, y: 3, y0: 0},
+                  {x: 5, y: 1, y0: 0},
+                  {x: 6, y: 3, y0: 0}
+
+                ]}
+              />
+
+            
+          </XYPlot>
+
+        </div>
         </div>
       </ReactCardFlip>  
     );
@@ -144,7 +200,7 @@ export default class Dash extends Component {
 
     return (
       <div class="full-dash">
-        <h1 class="dashTitle">Dashboard</h1>
+        <h1 class="dashTitle">{firebase.auth().currentUser.displayName.substr(0,firebase.auth().currentUser.displayName.indexOf(' '))}'s Dashboard </h1>
         <button class="logout" onClick={this.signOut}>logout</button>
 
         <h2 class="subtitle">Stats</h2>

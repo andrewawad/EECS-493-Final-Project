@@ -78,7 +78,7 @@ export default class Form extends Component {
         db.collection('users').doc(user).set({
 
             entries :{
-                [date]: [state]
+                [date]: (state)
                 
             }
 
@@ -137,7 +137,7 @@ export default class Form extends Component {
             </div>
 
             <div class="journalContainer">
-                <textarea placeholder="Today I ... " class="longInput" cols="30" rows="10"></textarea>
+                <textarea placeholder="Today I ... " class="longInput" cols="30" rows="10" ></textarea>
             </div>
 
             <div class="buttonContainer">
