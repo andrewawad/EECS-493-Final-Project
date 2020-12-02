@@ -49,7 +49,7 @@
 }
 
 .sign_in:hover {
-  background-color:#e41515;
+  background-color:#de1b1b;
 }
 
 
@@ -68,7 +68,7 @@
 .metrics_life{
   width: 521px;
   height: 132px;
-  margin-top: 190px;
+  margin-top: 240px;
   
   font-family: Rationale;
   font-style: normal;
@@ -81,6 +81,7 @@
   
   color: #000000;
 }
+
 .texting_girl{
   width: 20%;
   position: absolute;
@@ -95,8 +96,8 @@
   left: 80%;
   top: 200px;
 
-
 }
+
 .sitting_girl{
   width: 20%;
   position: absolute;
@@ -115,6 +116,25 @@
   font-size: 40px;
 }
 
+.logout{
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  right: 70px;
+  top: 27px;
+  font-size: 27px;
+  color: white;
+  font-family: Rationale;
+  background-color: #ED3F3F;
+  border-radius: 20px;
+  text-align: center;
+  border-style: none;
+}
+
+.logout:hover{
+  background-color:#de1b1b;
+}
+
 .card {
   background-color: antiquewhite;
   border-radius: 10px;
@@ -123,6 +143,10 @@
   padding: 15px;
   text-align: center;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.card:hover{
+  background-color: #f7e0c0;
 }
 
 
@@ -180,6 +204,10 @@
   border-radius: 50%;
 }
 
+.plus-button:hover{
+  background-color:#de1b1b;
+}
+
 .done {
   position: fixed;
   font-family: Rationale;
@@ -195,6 +223,7 @@
   color: aliceblue;
   border-radius: 50%;
 }
+
 
 
 
