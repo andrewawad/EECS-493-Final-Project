@@ -8,16 +8,37 @@ import {
 } from "react-router-dom";
 import "../style.css";
 import {authentication} from "./services/firebase";
+import ReactCardFlip from 'react-card-flip';
+import analytics from '../images/analytics.png';
 
 class Card extends Component {
-  render() {
-    return (
-      <div class="card">
-        <h2 class="card-title">{this.props.title}</h2>
-        <p class="card-num">{this.props.num}</p>
-        <h3 class="card-subtitle">{this.props.subtitle}</h3>
+  constructor() {
+    super();
+      this.state = {
+      isFlipped: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+ 
+  handleClick(e) {
+    e.preventDefault();
+    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+  }
 
-      </div>
+  render() {
+    
+    return (
+      <ReactCardFlip isFlipped={this.state.isFlipped} infinite>
+        <div class="card" onClick={this.handleClick}>
+          <h2 class="card-title">{this.props.title}</h2>
+          <p class="card-num">{this.props.num}</p>
+          <h3 class="card-subtitle">{this.props.subtitle}</h3>
+        </div>
+
+        <div class="card" onClick={this.handleClick}>
+          {/* Graph */}
+        </div>
+      </ReactCardFlip>  
     );
   }
 }
@@ -42,9 +63,6 @@ export default class Dash extends Component {
         alert(error);
       }
     }
-  
-
-
   
   
   
@@ -72,7 +90,7 @@ export default class Dash extends Component {
 
     return (
       <div class="full-dash">
-        <h1 class="dashTitle">Jacob's Dashboard</h1>
+        <h1 class="dashTitle">Dashboard</h1>
         <button class="logout" onClick={this.signOut}>logout</button>
 
         <h2 class="subtitle">Stats</h2>
