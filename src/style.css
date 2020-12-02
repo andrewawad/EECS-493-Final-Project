@@ -1,5 +1,11 @@
 
 @import "~react-vis/dist/style";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html * {
+  font-family: Montserrat;
+}
+
 
 .journal_title{
   color: #ED3F3F;
@@ -9,7 +15,6 @@
   left: 63px;
   top: 10px;
 
-  font-family: Rationale;
   font-style: normal;
   font-weight: normal;
   font-size: 72px;
@@ -25,6 +30,19 @@
   text-align: center;
 }
 
+.analytics_wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analytics {
+  width: 350px;
+  margin-top: 110px;
+}
+
 .sign_in_wrapper{
   width: 100%;
   height: 100%;
@@ -36,7 +54,7 @@
 .sign_in{
   width: 150px;
   height: 50px;
-  margin-top: 5px;
+  margin-top: 2px;
   font-style: normal;
   font-weight: bold;
   font-size: 25px;
@@ -67,12 +85,11 @@
 .metrics_life{
   width: 521px;
   height: 132px;
-  margin-top: 240px;
+  margin-top: 5px;
   
-  font-family: Rationale;
   font-style: normal;
   font-weight: normal;
-  font-size: 80px;
+  font-size: 60px;
   line-height: 90px;
   display: flex;
   align-items: center;
@@ -82,11 +99,11 @@
 }
 
 .texting_girl{
-  width: 20%;
+  width: 200px;
   position: absolute;
-  left: 5%;
+  left: 50px;
   top: 200px;
-
+  z-index: -1;
 
 }
 .song_girl{
@@ -94,6 +111,7 @@
   position: absolute;
   left: 80%;
   top: 200px;
+  z-index: -1;
 
 }
 
@@ -102,6 +120,7 @@
   position: absolute;
   left: 42%;
   top: 80%;
+  z-index: -1;
 
 }
 
@@ -109,9 +128,8 @@
   text-align: left;
   margin-left: 30px;
   color: #ED3F3F;
-  font-family: Rationale;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 40px;
 }
 
@@ -196,7 +214,7 @@
   right: 70px;
   width: 70px;
   height: 70px;
-  line-height: 60px;
+  line-height: 70px;
   font-size: 70px;
   background-color: #ED3F3F;
   color: aliceblue;
@@ -209,7 +227,6 @@
 
 .done {
   position: fixed;
-  font-family: Rationale;
 
   text-align: center;
   bottom: 60px;
@@ -235,7 +252,6 @@
   text-align: left;
   margin-left: 30px;
   color: #ED3F3F;
-  font-family: Rationale;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -347,7 +363,6 @@
   right: 30px;
   top: 4px;
   color: #ED3F3F;
-  font-family: Rationale;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;

@@ -77,7 +77,7 @@ export default class Dash extends Component {
 
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
-          <Card title="🔥 STREAK" num = "5" subtitle="days in a row" />
+          <Card title="🔥 STREAK" num = "5" subtitle="days in a row" />          
           <Card title="😃 HAPPINESS" num={ha} subtitle="this week" />
           <Card title="💪 HEALTH" num={he} subtitle="this week" />
           <Card title="✍️ PRODUCTIVITY" num={p} subtitle="this week" />
