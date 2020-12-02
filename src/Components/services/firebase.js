@@ -1,9 +1,7 @@
 import firebase from 'firebase';
 import "firebase/auth";
 import "firebase/firestore";
-import {Redirect} from 'react-router-dom';
-
-
+import { Redirect } from 'react-router-dom';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBkoe91QFg3mf81WsmPONkcjYtAf1y7QVY",
@@ -19,36 +17,30 @@ var firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export default app;
 
-
-
 const db = firebase.firestore();
 export const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider()
-export const authentication ={
+export const authentication = {
   isAuthenticated: false,
-  signOut:()=>{
-    auth.signOut().then(function() {
+  signOut: () => {
+    auth.signOut().then(function () {
       // Sign-out successful.
-    }).catch(function(error) {
-      return(error)
+    }).catch(function (error) {
+      return (error)
       // An error happened.
     });
-
   },
   signInWithGoogle: () => {
-
-  auth.signInWithPopup(googleProvider).then((res) => {
-    console.log(res.user.uid)
-    if (res.additionalUserInfo.isNewUser==true){
-    return db.collection('users').doc(res.user.uid).set({
-    });
-  }
-  })
-  .then(() => {
-  })
-  .catch((error) => {
-    throw error
-  })
-  }
+    auth.signInWithPopup(googleProvider).then((res) => {
+      const USER_ID = res.user.uid;
+      if (res.additionalUserInfo.isNewUser == true) {
+        return db.collection('users').doc(res.user.uid).set({
+        });
+      }
+    })
+      .catch((error) => {
+        throw error
+      })
+  },
 
 }
