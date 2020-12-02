@@ -9,7 +9,6 @@ import {
 import "../style.css";
 import {authentication} from "./services/firebase";
 import ReactCardFlip from 'react-card-flip';
-import analytics from '../images/analytics.png';
 
 class Card extends Component {
   constructor() {
