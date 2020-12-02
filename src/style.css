@@ -332,3 +332,16 @@
   font-weight: bold;
   margin: 20px;
 }
+
+.date{
+  position: absolute;
+  color: #ED3F3F;
+  text-align: left;
+  right: 30px;
+  top: 4px;
+  color: #ED3F3F;
+  font-family: Rationale;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+}

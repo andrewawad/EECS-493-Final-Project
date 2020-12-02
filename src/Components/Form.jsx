@@ -7,11 +7,14 @@ import {
   } from "react-router-dom";
 import '../style.css';
 
-
 export default class Form extends Component {
     constructor(props) {
+        var today = new Date(),
+        date = (today.getMonth() + 1) + '/' + today.getDate() + '/' +  today.getFullYear();
+
         super(props)
         this.state = {
+            currentDate: date,
             overall: 5,
             healthy: 5,
             productive: 5,
@@ -67,6 +70,10 @@ export default class Form extends Component {
             <h1 class="formTitle">
                 Rate My Day
             </h1>
+
+            <div class = 'date'>
+                <p>{ this.state.currentDate }</p>
+            </div>
 
             <h3 class="formQuestion">How was your day overall? {overall}</h3>
             <div class="slidecontainer">
