@@ -1,0 +1,25 @@
+<XYPlot width={300} height={150}>
+              {/* <VerticalGridLines /> */}
+              <XAxis
+                // tickTotal={this.props.data}
+                // tickFormat={(v) => `${DAYS[v]}`}
+                style={{
+                  line: { stroke: "black" },
+                  ticks: { stroke: "black" },
+                  text: { stroke: "none", fill: "#6b6b76", fontWeight: 600 },
+                }}
+              />
+              <YAxis
+                style={{
+                  line: { stroke: "black" },
+                  ticks: { stroke: "black" },
+                  text: { stroke: "none", fill: "#6b6b76", fontWeight: 600 },
+                }}
+              />
+              <LineSeries
+                curve={"curveMonotoneX"}
+                color={"#ED3F3F"}
+                opacity={1}
+                data={this.props.data}
+              />
+            </XYPlot>
