@@ -142,25 +142,25 @@ export default class Dash extends Component {
           let count = 0;
           Object.keys(data).forEach((key) => {
             relSum += parseFloat(data[key].relationships);
-            relData.push({ x: key, y: parseFloat(data[key].relationships) });
+            relData.push({ x: new Date(key), y: parseFloat(data[key].relationships) });
 
             overSum += parseFloat(data[key].overall);
-            overData.push({ x: key, y: parseFloat(data[key].overall) });
+            overData.push({ x: new Date(key), y: parseFloat(data[key].overall) });
 
             healthSum += parseFloat(data[key].healthy);
-            healthData.push({ x: key, y: parseFloat(data[key].healthy) });
+            healthData.push({ x: new Date(key), y: parseFloat(data[key].healthy) });
 
             hapSum += parseFloat(data[key].happy);
-            hapData.push({ x: key, y: parseFloat(data[key].happy) });
+            hapData.push({ x: new Date(key), y: parseFloat(data[key].happy) });
 
             learnSum += parseFloat(data[key].learn);
-            learnData.push({ x: key, y: parseFloat(data[key].learn) });
+            learnData.push({ x: new Date(key), y: parseFloat(data[key].learn) });
 
             prodSum += parseFloat(data[key].productive);
-            prodData.push({ x: key, y: parseFloat(data[key].productive) });
+            prodData.push({ x: new Date(key), y: parseFloat(data[key].productive) });
 
             stressSum += parseFloat(data[key].stress);
-            stressData.push({ x: key, y: parseFloat(data[key].stress) });
+            stressData.push({ x: new Date(key), y: parseFloat(data[key].stress) });
 
             journals.push({date: new Date(key), title: data[key].text});
           });
@@ -168,7 +168,22 @@ export default class Dash extends Component {
           let sortedJournals = journals.sort((a, b) => b.date - a.date);
           sortedJournals.forEach(j => j.date = j.date.toString().split(' ').slice(0, 4).join(' '));
           
-          console.log(sortedJournals)
+
+          let sortedRelData = relData.sort((a, b) => a.x - b.x);
+          sortedRelData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          let sortedOverData = overData.sort((a, b) => a.x - b.x);
+          sortedOverData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          let sortedHealthData = healthData.sort((a, b) => a.x - b.x);
+          sortedHealthData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          let sortedHapData = hapData.sort((a, b) => a.x - b.x);
+          sortedHapData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          let sortedlearnData = learnData.sort((a, b) => a.x - b.x);
+          sortedlearnData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          let sortedprodData = prodData.sort((a, b) => a.x - b.x);
+          sortedprodData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          let sortedStressData = stressData.sort((a, b) => a.x - b.x);
+          sortedStressData.forEach(j => j.x = j.x.toString().split(' ').slice(0, 4).join(' '));
+          
 
           if (len < 1) {
             this.setState({
@@ -182,12 +197,12 @@ export default class Dash extends Component {
               stressAvg: "-",
 
               relData: relData,
-              overData: overData,
-              healthData: healthData,
-              hapData: hapData,
-              learnData: learnData,
-              prodData: prodData,
-              stressData: stressData,
+              overData: sortedOverData,
+              healthData: sortedHealthData,
+              hapData: sortedHapData,
+              learnData: sortedlearnData,
+              prodData: sortedprodData,
+              stressData: sortedStressData,
 
               journals: sortedJournals,
             });
