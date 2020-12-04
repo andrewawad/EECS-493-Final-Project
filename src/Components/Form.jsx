@@ -67,6 +67,10 @@ export default class Form extends Component {
     this.setState({ happy: event.target.value });
   }
 
+  handleText(event) {
+    this.setState({ text: event.target.value });
+  }
+
   uploadData() {
     let user = app.auth().currentUser.uid;
     const db = firebase.firestore();
@@ -75,6 +79,7 @@ export default class Form extends Component {
     console.log(jsonObject.state);
     let date = this.state.currentDate;
     console.log(user, this.state.currentDate);
+    console.log(user, this.state.text);
 
     db.collection("users")
       .doc(user)
@@ -196,7 +201,7 @@ export default class Form extends Component {
         </div>
 
         <div class="journalContainer">
-          <textarea
+          <textarea onChange={this.handleText.bind(this)}
             placeholder="Today I ... "
             class="longInput"
             cols="30"

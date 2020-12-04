@@ -99,6 +99,8 @@ class Note extends Component {
 
 const db = firebase.firestore();
 
+var journals = [];
+
 export default class Dash extends Component {
   constructor(props) {
     super(props);
@@ -111,6 +113,7 @@ export default class Dash extends Component {
       prodAvg: 0,
       relAvg: 0,
       stressAvg: 0,
+      journals: [],
     };
   }
 
@@ -132,6 +135,8 @@ export default class Dash extends Component {
         console.log(e.data());
         let data = e.data().entries;
         if (data) {
+          let journals = [];
+
           let len = Object.keys(data).length;
           let relSum = 0;
           let overSum = 0;
@@ -170,6 +175,8 @@ export default class Dash extends Component {
             
             stressSum += parseFloat(data[key].stress);
             stressData.push({x: key, y: parseFloat(data[key].stress)});
+
+            journals.push(data[key].text);
           });
 
           if (len < 1) {
@@ -190,6 +197,8 @@ export default class Dash extends Component {
               learnData: learnData,
               prodData: prodData,
               stressData: stressData,
+
+              journals: journals,
             });
           }
           else {
@@ -210,30 +219,19 @@ export default class Dash extends Component {
               learnData: learnData,
               prodData: prodData,
               stressData: stressData,
+
+              journals: journals,
             });
           }
-  
-          console.log(hapSum)
         }
-        console.log(this.state)
+        console.log(this.state);
+
       });
   }
 
   render() {
-    let p = 5;
-    let ha = 5;
-    let he = 5;
-    let te = "this is a test note";
 
-    // console.log(this.props.location.state)
-    if (typeof this.props.location.state == "undefined") {
-      p = 5;
-    } else {
-      p = this.props.location.state.productive;
-      ha = this.props.location.state.happy;
-      he = this.props.location.state.healthy;
-      te = this.props.location.state.text;
-    }
+    var renderedOutput = this.state.journals.map(item => <Note title={item}></Note>);
 
     return (
       <div class="full-dash">
@@ -297,8 +295,8 @@ export default class Dash extends Component {
         </div>
 
         <h2 class="subtitle">Journal Entries</h2>
-        <Note title="this is a test note" />
-        <Note title={te} />
+
+        {renderedOutput}
 
         <div>
           <Link to="/form">

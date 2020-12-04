@@ -1,9 +1,6 @@
 import React, { useCallback,useContext, Component } from 'react';
 import {Link, Redirect, withRouter} from 'react-router-dom';
 import '../style.css';
-import sitting_girl from '../images/sitting_girl.png';
-import song_girl from '../images/song_girl.png';
-import texting_girl from '../images/texting_girl.png';
 import analytics from '../images/analytics.png';
 
 import {authentication} from "./services/firebase";
@@ -36,10 +33,6 @@ const Home = ({ history }) => {
           <div class = 'analytics_wrapper'>
             <img src={analytics} class = 'analytics' alt="Analytics"></img>
           </div>
-
-            {/* <img src={sitting_girl} class = 'sitting_girl' alt="Sitting Girl"></img>
-            <img src={song_girl} class = 'song_girl' alt="Song Girl"></img>
-            <img src={texting_girl} class = 'texting_girl' alt="Texting Girl"></img> */}
 
             <h1 class = 'journal_title'>Journally!</h1>
             
