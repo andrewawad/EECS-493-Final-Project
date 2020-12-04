@@ -67,11 +67,19 @@ class Card extends Component {
               </div>
             </ReactCardFlip>
           ) : (
-            <div class="card">
-              <h2 class="card-title">{this.props.title}</h2>
-              <p class="card-num">{this.props.num}</p>
-              <h3 class="card-subtitle">{this.props.subtitle}</h3>
-            </div>
+            <ReactCardFlip isFlipped={this.state.isFlipped} infinite>
+              <div class="card" onClick={this.handleClick}>
+                <h2 class="card-title">{this.props.title}</h2>
+                <p class="card-num">{this.props.num}</p>
+                <h3 class="card-subtitle">{this.props.subtitle}</h3>
+              </div>
+
+              <div class="card" onClick={this.handleClick}>
+                <h2 class="card-title">{this.props.title}</h2>
+                <p class="card-num">{this.props.num}</p>
+                <h3 class="card-subtitle">{this.props.subtitle}</h3>
+              </div>
+            </ReactCardFlip>
           )
         }
       </>
@@ -151,8 +159,8 @@ export default class Dash extends Component {
             healthSum += parseFloat(data[key].healthy);
             healthData.push({x: key, y: parseFloat(data[key].healthy)});
             
-            hapSum += parseFloat(data[key].happiness);
-            hapData.push({x: key, y: parseFloat(data[key].happiness)});
+            hapSum += parseFloat(data[key].happy);
+            hapData.push({x: key, y: parseFloat(data[key].happy)});
             
             learnSum += parseFloat(data[key].learn);
             learnData.push({x: key, y: parseFloat(data[key].learn)});
@@ -163,25 +171,68 @@ export default class Dash extends Component {
             stressSum += parseFloat(data[key].stress);
             stressData.push({x: key, y: parseFloat(data[key].stress)});
           });
+
+          if (len < 1) {
+            this.setState({
+              totalEntries: len,
+              hapAvg: 0,
+              healthAvg: 0,
+              learnAvg: 0,
+              overallAvg: 0,
+              prodAvg: 0,
+              relAvg: 0,
+              stressAvg: 0,
+              
+              relData: relData,
+              overData: overData,
+              healthData: healthData,
+              hapData: hapData,
+              learnData: learnData,
+              prodData: prodData,
+              stressData: stressData,
+            });
+          }
+          else if (len == 1) {
+            this.setState({
+              totalEntries: len,
+              hapAvg: hapSum,
+              healthAvg: healthSum,
+              learnAvg: learnSum,
+              overallAvg: overSum,
+              prodAvg: prodSum,
+              relAvg: relSum,
+              stressAvg: stressSum,
+              
+              relData: relData,
+              overData: overData,
+              healthData: healthData,
+              hapData: hapData,
+              learnData: learnData,
+              prodData: prodData,
+              stressData: stressData,
+            });
+          }
+          else {
+            this.setState({
+              totalEntries: len,
+              hapAvg: Math.round((100 * hapSum) / len) / 100,
+              healthAvg: Math.round((100 * healthSum) / len) / 100,
+              learnAvg: Math.round((100 * learnSum) / len) / 100,
+              overallAvg: Math.round((100 * overSum) / len) / 100,
+              prodAvg: Math.round((100 * prodSum) / len) / 100,
+              relAvg: Math.round((100 * relSum) / len) / 100,
+              stressAvg: Math.round((100 * stressSum) / len) / 100,
+              
+              relData: relData,
+              overData: overData,
+              healthData: healthData,
+              hapData: hapData,
+              learnData: learnData,
+              prodData: prodData,
+              stressData: stressData,
+            });
+          }
   
-          this.setState({
-            totalEntries: len,
-            hapAvg: Math.round((100 * hapSum) / len) / 100,
-            healthAvg: Math.round((100 * healthSum) / len) / 100,
-            learnAvg: Math.round((100 * learnSum) / len) / 100,
-            overallAvg: Math.round((100 * overSum) / len) / 100,
-            prodAvg: Math.round((100 * prodSum) / len) / 100,
-            relAvg: Math.round((100 * relSum) / len) / 100,
-            stressAvg: Math.round((100 * stressSum) / len) / 100,
-            
-            relData: relData,
-            overData: overData,
-            healthData: healthData,
-            hapData: hapData,
-            learnData: learnData,
-            prodData: prodData,
-            stressData: stressData,
-          });
           console.log(hapSum)
         }
         console.log(this.state)
@@ -221,7 +272,7 @@ export default class Dash extends Component {
 
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
-          <Card
+          <Card 
             title="🔥  TOTAL"
             num={this.state.totalEntries}
             subtitle="days tracking your life metrics"

@@ -17,7 +17,7 @@ html * {
 
   font-style: normal;
   font-weight: normal;
-  font-size: 72px;
+  font-size: 5vw;
   line-height: 83px;
   display: flex;
   align-items: center;
@@ -39,8 +39,8 @@ html * {
 }
 
 .analytics {
-  width: 350px;
-  margin-top: 110px;
+  width: 25%;
+  margin-top: 8%;
 }
 
 .sign_in_wrapper{
@@ -54,7 +54,7 @@ html * {
 .sign_in{
   width: 150px;
   height: 50px;
-  margin-top: 2px;
+  margin-top: 1%;
   font-style: normal;
   font-weight: bold;
   font-size: 25px;
@@ -83,18 +83,13 @@ html * {
 }
 
 .metrics_life{
-  width: 521px;
-  height: 132px;
-  margin-top: 5px;
-  
+  margin-top: 2%;
   font-style: normal;
   font-weight: normal;
-  font-size: 60px;
-  line-height: 90px;
+  font-size: 4vw;
   display: flex;
   align-items: center;
   text-align: center;
-  
   color: #000000;
 }
 
@@ -126,11 +121,12 @@ html * {
 
 .dashTitle {
   text-align: left;
-  margin-left: 30px;
+  margin-left: 50px;
   color: #ED3F3F;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
+  margin-top: 35px;
 }
 
 .logout{
@@ -138,7 +134,7 @@ html * {
   width: 150px;
   height: 50px;
   right: 70px;
-  top: 27px;
+  top: 38px;
   color: white;
   background-color: #ED3F3F;
   border-radius: 20px;
@@ -155,13 +151,14 @@ html * {
 .card-cont {
   display: flex;
   flex-flow: row wrap;
-  margin-left: 15px;
+  margin-left: 35px;
 }
 
 .card {
   flex: 1;
   min-width: 300px;
-  min-height: 223px;
+  max-width: 300px;
+  height: 223px;
   background-color: antiquewhite;
   border-radius: 10px;
   margin: 15px;
@@ -181,9 +178,9 @@ html * {
 .note {
   background-color: lightgray;
   border-radius: 10px;
-  width: 83%;
+  width: 75%;
   margin: 20px;
-  margin-left: 30px;
+  margin-left: 50px;
   padding: 20px;
   height: 5px;
 
@@ -249,13 +246,13 @@ html * {
 
 
 .subtitle {
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 /* FORM */
 .formTitle {
   text-align: left;
-  margin-left: 30px;
+  margin-left: 50px;
   color: #ED3F3F;
   font-style: normal;
   font-weight: normal;
@@ -365,10 +362,14 @@ html * {
   position: absolute;
   color: #ED3F3F;
   text-align: left;
-  right: 30px;
-  top: 4px;
+  right: 50px;
+  top: 7px;
   color: #ED3F3F;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
+}
+
+.graphs {
+  margin-left: -10px;
 }
