@@ -8,13 +8,10 @@ import {
 } from "react-router-dom";
 import "../style.css";
 import {authentication} from "./services/firebase";
-<<<<<<< HEAD
 import firebase from 'firebase';
 import "firebase/auth";
 import "firebase/firestore";
-=======
 import ReactCardFlip from 'react-card-flip';
->>>>>>> 902f665d30a22fa977f6b99bd6b10320330ce437
 
 class Card extends Component {
   constructor() {
@@ -72,9 +69,7 @@ export default class Dash extends Component {
       prodAvg: 0,
       relAvg: 0,
       stressAvg: 0,
-      data: {}
     }
-<<<<<<< HEAD
   }
 
   signOut(){
@@ -95,6 +90,8 @@ export default class Dash extends Component {
       let len = Object.keys(data).length;
 
       let relSum = 0;
+      let relData = [];
+
       let overSum = 0;
       let healthSum = 0;
       let hapSum = 0;
@@ -103,6 +100,8 @@ export default class Dash extends Component {
       let stressSum = 0;
       Object.keys(data).forEach((key) => {
         relSum += data[key].relationships;
+        // relData.append((key, data[key].relationships))
+
         overSum += data[key].overall;
         healthSum += data[key].healthy;
         hapSum += data[key].happiness;
@@ -126,11 +125,6 @@ export default class Dash extends Component {
     })
   }
 
-=======
-  
-  
-  
->>>>>>> 902f665d30a22fa977f6b99bd6b10320330ce437
   render() {
     let p = 5
     let ha = 5
@@ -155,20 +149,13 @@ export default class Dash extends Component {
 
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
-<<<<<<< HEAD
-          <Card title="🔥  TOTAL" num = {this.state.totalEntries} subtitle="days tracking your life metrics" />
+          <Card title="🔥  TOTAL" num ={this.state.totalEntries} subtitle="days tracking your life metrics" />
           <Card title="😃  HAPPINESS" num={this.state.hapAvg} subtitle="overall" />
           <Card title="💪  HEALTH" num={this.state.healthAvg} subtitle="overall" />
           <Card title="✍️  PRODUCTIVITY" num={this.state.prodAvg} subtitle="overall" />
           <Card title="✍️  LEARNING" num={this.state.learnAvg} subtitle="overall" />
           <Card title="✍️  MANAGING STRESS" num={this.state.stressAvg} subtitle="overall" />
           <Card title="✍️  RELATIONSHIPS" num={this.state.relAvg} subtitle="overall" />
-=======
-          <Card title="🔥 STREAK" num = "5" subtitle="days in a row" />          
-          <Card title="😃 HAPPINESS" num={ha} subtitle="this week" />
-          <Card title="💪 HEALTH" num={he} subtitle="this week" />
-          <Card title="✍️ PRODUCTIVITY" num={p} subtitle="this week" />
->>>>>>> 902f665d30a22fa977f6b99bd6b10320330ce437
         </div>
 
         <h2 class="subtitle">Journal Entries</h2>
