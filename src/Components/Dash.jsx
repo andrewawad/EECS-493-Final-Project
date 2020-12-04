@@ -221,6 +221,7 @@ export default class Dash extends Component {
   render() {
     return (
       <div class="full-dash">
+        <div class = "header">
         <h1 class="dashTitle">
           {firebase
             .auth()
@@ -233,7 +234,7 @@ export default class Dash extends Component {
         <button class="logout" onClick={this.signOut}>
           logout
         </button>
-
+        </div>
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
           <Card
