@@ -6,12 +6,14 @@ import {
     Link
   } from "react-router-dom";
 import '../style.css';
+import "firebase/firestore";
+import firebase from 'firebase';
+import app from "./services/firebase.js"
 
 export default class Form extends Component {
     constructor(props) {
         var today = new Date(),
-        date = (today.getMonth() + 1) + '/' + today.getDate() + '/' +  today.getFullYear();
-
+        date = ((today.getMonth() + 1) + '-' + today.getDate() + '-' +  today.getFullYear()).toString()
         super(props)
         this.state = {
             currentDate: date,
@@ -32,6 +34,8 @@ export default class Form extends Component {
         this.handleRelationships = this.handleRelationships.bind(this);
         this.handleLearn = this.handleLearn.bind(this);
         this.handleHappy = this.handleHappy.bind(this);
+        this.uploadData = this.uploadData.bind(this);
+
     }
 
     handleHealthy(event) {
@@ -62,6 +66,28 @@ export default class Form extends Component {
         this.setState({happy: event.target.value});
     }
     
+    uploadData(){
+        let user = app.auth().currentUser.uid;
+        const db = firebase.firestore()
+        let state = this.state
+        let jsonObject = JSON.stringify({state})
+        console.log(jsonObject.state)
+        let date = this.state.currentDate
+        console.log(user,this.state.currentDate)
+
+        db.collection('users').doc(user).set({
+
+            entries :{
+                [date]: (state)
+                
+            }
+
+        },{ merge: true })
+
+            
+    }
+
+
     render() {
       let { overall, healthy, productive, stress, relationships, learn, happy } = this.state;
 
@@ -111,7 +137,7 @@ export default class Form extends Component {
             </div>
 
             <div class="journalContainer">
-                <textarea placeholder="Today I ... " class="longInput" cols="30" rows="10"></textarea>
+                <textarea placeholder="Today I ... " class="longInput" cols="30" rows="10" ></textarea>
             </div>
 
             <div class="buttonContainer">
@@ -119,7 +145,7 @@ export default class Form extends Component {
                     <button class="backButton">Back</button>
                 </Link>
                 <Link to="/dashboard">
-                    <button class="submitButton">Submit</button>
+                    <button onClick = {this.uploadData} class="submitButton">Submit</button>
                 </Link>
             </div>
 
