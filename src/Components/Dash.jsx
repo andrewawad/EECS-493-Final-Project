@@ -12,19 +12,7 @@ import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
 import ReactCardFlip from "react-card-flip";
-// import {
-//   XYPlot,
-//   XAxis,
-//   YAxis,
-//   VerticalGridLines,
-//   HorizontalGridLines,
-//   LineSeries,
-//   AreaSeries,
-//   GradientDefs,
-//   Borders,
-// } from "react-vis";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
-
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 
 const DAYS = ["Mon", "Tu", "Wed ", "Thu ", "Fri", "Sat", "Sun"];
 class Card extends Component {
@@ -45,43 +33,41 @@ class Card extends Component {
     // console.log(this.props.data)
     return (
       <>
-        {
-          (this.props.data != "empty") ? (
-            <ReactCardFlip isFlipped={this.state.isFlipped} infinite>
-              <div class="card" onClick={this.handleClick}>
-                <h2 class="card-title">{this.props.title}</h2>
-                <p class="card-num">{this.props.num}</p>
-                <h3 class="card-subtitle">{this.props.subtitle}</h3>
-              </div>
-  
-              <div class="card" onClick={this.handleClick}>
-                <div class="graphs">
-                  <h2 class="card-title">{this.props.title}</h2>
-                  <LineChart width={300} height={150} data={this.props.data}>
-                    <CartesianGrid strokeDasharray="10 10" />
-                    <XAxis dataKey="x" />
-                    <YAxis />
-                    <Line type="monotone" dataKey="y" stroke="#ED3F3F" />
-                  </LineChart>
-                </div>
-              </div>
-            </ReactCardFlip>
-          ) : (
-            <ReactCardFlip isFlipped={this.state.isFlipped} infinite>
-              <div class="card" onClick={this.handleClick}>
-                <h2 class="card-title">{this.props.title}</h2>
-                <p class="card-num">{this.props.num}</p>
-                <h3 class="card-subtitle">{this.props.subtitle}</h3>
-              </div>
+        {this.props.data != "empty" ? (
+          <ReactCardFlip isFlipped={this.state.isFlipped} infinite>
+            <div class="card" onClick={this.handleClick}>
+              <h2 class="card-title">{this.props.title}</h2>
+              <p class="card-num">{this.props.num}</p>
+              <h3 class="card-subtitle">{this.props.subtitle}</h3>
+            </div>
 
-              <div class="card" onClick={this.handleClick}>
+            <div class="card" onClick={this.handleClick}>
+              <div class="graphs">
                 <h2 class="card-title">{this.props.title}</h2>
-                <p class="card-num">{this.props.num}</p>
-                <h3 class="card-subtitle">{this.props.subtitle}</h3>
+                <LineChart width={300} height={150} data={this.props.data}>
+                  <CartesianGrid strokeDasharray="10 10" />
+                  <XAxis dataKey="x" />
+                  <YAxis />
+                  <Line type="monotone" dataKey="y" stroke="#ED3F3F" />
+                </LineChart>
               </div>
-            </ReactCardFlip>
-          )
-        }
+            </div>
+          </ReactCardFlip>
+        ) : (
+          <ReactCardFlip isFlipped={this.state.isFlipped} infinite>
+            <div class="card" onClick={this.handleClick}>
+              <h2 class="card-title">{this.props.title}</h2>
+              <p class="card-num">{this.props.num}</p>
+              <h3 class="card-subtitle">{this.props.subtitle}</h3>
+            </div>
+
+            <div class="card" onClick={this.handleClick}>
+              <h2 class="card-title">{this.props.title}</h2>
+              <p class="card-num">{this.props.num}</p>
+              <h3 class="card-subtitle">{this.props.subtitle}</h3>
+            </div>
+          </ReactCardFlip>
+        )}
       </>
     );
   }
@@ -91,6 +77,7 @@ class Note extends Component {
   render() {
     return (
       <div class="note">
+        <div class="note-date">{this.props.date}</div>
         <div class="note-title">{this.props.title}</div>
       </div>
     );
@@ -98,8 +85,6 @@ class Note extends Component {
 }
 
 const db = firebase.firestore();
-
-var journals = [];
 
 export default class Dash extends Component {
   constructor(props) {
@@ -145,7 +130,7 @@ export default class Dash extends Component {
           let learnSum = 0;
           let prodSum = 0;
           let stressSum = 0;
-  
+
           let relData = [];
           let overData = [];
           let healthData = [];
@@ -153,31 +138,37 @@ export default class Dash extends Component {
           let learnData = [];
           let prodData = [];
           let stressData = [];
-  
+
+          let count = 0;
           Object.keys(data).forEach((key) => {
             relSum += parseFloat(data[key].relationships);
-            relData.push({x: key, y: parseFloat(data[key].relationships)});
-            
-            overSum += parseFloat(data[key].overall);
-            overData.push({x: key, y: parseFloat(data[key].overall)});
-            
-            healthSum += parseFloat(data[key].healthy);
-            healthData.push({x: key, y: parseFloat(data[key].healthy)});
-            
-            hapSum += parseFloat(data[key].happy);
-            hapData.push({x: key, y: parseFloat(data[key].happy)});
-            
-            learnSum += parseFloat(data[key].learn);
-            learnData.push({x: key, y: parseFloat(data[key].learn)});
-            
-            prodSum += parseFloat(data[key].productive);
-            prodData.push({x: key, y: parseFloat(data[key].productive)});
-            
-            stressSum += parseFloat(data[key].stress);
-            stressData.push({x: key, y: parseFloat(data[key].stress)});
+            relData.push({ x: key, y: parseFloat(data[key].relationships) });
 
-            journals.push(data[key].text);
+            overSum += parseFloat(data[key].overall);
+            overData.push({ x: key, y: parseFloat(data[key].overall) });
+
+            healthSum += parseFloat(data[key].healthy);
+            healthData.push({ x: key, y: parseFloat(data[key].healthy) });
+
+            hapSum += parseFloat(data[key].happy);
+            hapData.push({ x: key, y: parseFloat(data[key].happy) });
+
+            learnSum += parseFloat(data[key].learn);
+            learnData.push({ x: key, y: parseFloat(data[key].learn) });
+
+            prodSum += parseFloat(data[key].productive);
+            prodData.push({ x: key, y: parseFloat(data[key].productive) });
+
+            stressSum += parseFloat(data[key].stress);
+            stressData.push({ x: key, y: parseFloat(data[key].stress) });
+
+            journals.push({date: new Date(key), title: data[key].text});
           });
+
+          let sortedJournals = journals.sort((a, b) => b.date - a.date);
+          sortedJournals.forEach(j => j.date = j.date.toString().split(' ').slice(0, 4).join(' '));
+          
+          console.log(sortedJournals)
 
           if (len < 1) {
             this.setState({
@@ -189,7 +180,7 @@ export default class Dash extends Component {
               prodAvg: "-",
               relAvg: "-",
               stressAvg: "-",
-              
+
               relData: relData,
               overData: overData,
               healthData: healthData,
@@ -198,10 +189,9 @@ export default class Dash extends Component {
               prodData: prodData,
               stressData: stressData,
 
-              journals: journals,
+              journals: sortedJournals,
             });
-          }
-          else {
+          } else {
             this.setState({
               totalEntries: len,
               hapAvg: Math.round((100 * hapSum) / len) / 100,
@@ -211,7 +201,7 @@ export default class Dash extends Component {
               prodAvg: Math.round((100 * prodSum) / len) / 100,
               relAvg: Math.round((100 * relSum) / len) / 100,
               stressAvg: Math.round((100 * stressSum) / len) / 100,
-              
+
               relData: relData,
               overData: overData,
               healthData: healthData,
@@ -225,14 +215,10 @@ export default class Dash extends Component {
           }
         }
         console.log(this.state);
-
       });
   }
 
   render() {
-
-    var renderedOutput = this.state.journals.map(item => <Note title={item}></Note>);
-
     return (
       <div class="full-dash">
         <h1 class="dashTitle">
@@ -250,7 +236,7 @@ export default class Dash extends Component {
 
         <h2 class="subtitle">Stats</h2>
         <div class="card-cont">
-          <Card 
+          <Card
             title="🔥  TOTAL"
             num={this.state.totalEntries}
             subtitle="days tracking your life metrics"
@@ -279,13 +265,13 @@ export default class Dash extends Component {
             num={this.state.learnAvg}
             subtitle="overall"
             data={this.state.learnData}
-            />
+          />
           <Card
             title="🏝  MANAGING STRESS"
             num={this.state.stressAvg}
             subtitle="overall"
             data={this.state.stressData}
-            />
+          />
           <Card
             title="🤝  RELATIONSHIPS"
             num={this.state.relAvg}
@@ -296,7 +282,9 @@ export default class Dash extends Component {
 
         <h2 class="subtitle">Journal Entries</h2>
 
-        {renderedOutput}
+        {this.state.journals.map((item) => (
+          <Note title={item.title} date={item.date}></Note>
+        ))}
 
         <div>
           <Link to="/form">

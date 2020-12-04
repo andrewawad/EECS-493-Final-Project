@@ -176,22 +176,23 @@ html * {
 }
 
 .note {
-  background-color: lightgray;
+  background-color: rgb(240, 240, 240);
   border-radius: 10px;
   width: 75%;
   margin: 20px;
   margin-left: 50px;
+  line-height: normal;
   padding: 20px;
-  height: 5px;
-
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 .note-title {
   color: black;
-  text-align: left;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);  
+}
+
+.note-date {
+  color: #7c7c7c;
+  text-align: right;
 }
 
 @media (max-width: 800px) {
@@ -212,12 +213,12 @@ html * {
 .plus-button {
   position: fixed;
   text-align: center;
-  bottom: 70px;
-  right: 70px;
+  bottom: 7%;
+  right: 5%;
   width: 70px;
   height: 70px;
   line-height: 70px;
-  font-size: 70px;
+  font-size: 40px;
   background-color: #ED3F3F;
   color: aliceblue;
   border-radius: 50%;
