@@ -175,33 +175,13 @@ export default class Dash extends Component {
           if (len < 1) {
             this.setState({
               totalEntries: len,
-              hapAvg: 0,
-              healthAvg: 0,
-              learnAvg: 0,
-              overallAvg: 0,
-              prodAvg: 0,
-              relAvg: 0,
-              stressAvg: 0,
-              
-              relData: relData,
-              overData: overData,
-              healthData: healthData,
-              hapData: hapData,
-              learnData: learnData,
-              prodData: prodData,
-              stressData: stressData,
-            });
-          }
-          else if (len == 1) {
-            this.setState({
-              totalEntries: len,
-              hapAvg: hapSum,
-              healthAvg: healthSum,
-              learnAvg: learnSum,
-              overallAvg: overSum,
-              prodAvg: prodSum,
-              relAvg: relSum,
-              stressAvg: stressSum,
+              hapAvg: "-",
+              healthAvg: "-",
+              learnAvg: "-",
+              overallAvg: "-",
+              prodAvg: "-",
+              relAvg: "-",
+              stressAvg: "-",
               
               relData: relData,
               overData: overData,
