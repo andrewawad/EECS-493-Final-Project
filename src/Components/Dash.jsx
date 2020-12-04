@@ -121,7 +121,7 @@ export default class Dash extends Component {
       .doc(uid)
       .get()
       .then((e) => {
-        // console.log(e.data());
+        console.log(e.data());
         let data = e.data().entries;
         if (data) {
           let len = Object.keys(data).length;
@@ -182,7 +182,9 @@ export default class Dash extends Component {
             prodData: prodData,
             stressData: stressData,
           });
+          console.log(hapSum)
         }
+        console.log(this.state)
       });
   }
 
